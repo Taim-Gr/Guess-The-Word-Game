@@ -31,7 +31,7 @@ footer.split("").forEach(function (letter) {
   }
 });
 
-let numberOfTries = 20;
+let numberOfTries = 6;
 let numberOfLetters = 6;
 let currentTry = 1;
 let numOfHints = 2;
