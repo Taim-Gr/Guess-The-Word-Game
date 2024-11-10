@@ -39,15 +39,13 @@ let numOfHints = 2;
 let increase = 2;
 let wordToGuess = "";
 let words = [
-  "create",
-  "Update",
-  "Delete",
-  "Master",
-  "Branch",
-  "Mainly",
-  "Elzero",
-  "School",
+  "create", "update", "delete", "school", "castle", "island", "forest", 
+  "flower", "spring", "bridge", "summer", "planet", "charge", "bright", 
+  "people", "silver", "animal", "winter", "friend", "bucket", "sunset", 
+  "copper", "golden", "market", "beacon", "temple", "garden", "filter", 
+  "rocket", "sprint", "screen"
 ];
+
 wordToGuess = words[Math.floor(Math.random() * words.length)].toLowerCase();
 let messageArea = document.querySelector(".message");
 console.log(wordToGuess);
