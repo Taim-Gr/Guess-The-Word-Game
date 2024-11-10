@@ -1,0 +1,262 @@
+
+*{
+    box-sizing: border-box;
+}
+:root{
+    --primary-color:#f44336;
+}
+
+body{
+    margin: 0;
+    background-color: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 110vh;
+}
+h1{
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 0 0 30px;
+}
+.guess-game{
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 1000px;
+    margin: 20px auto;
+    .game-area{
+        .inputs{
+
+            > div{
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span{
+                    font-size: 30px;
+                    margin-right: 15px;
+                    font-weight: bold;
+                }
+
+
+            }
+            .disabled-inputs{
+                opacity: 0.5;
+                pointer-events: none;
+            }
+            input{
+                margin: 0 5px;
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                font-size: 50px;
+                caret-color: var(--primary-color);
+                background-color: white;
+                border: none;
+                border-bottom:3px solid #333 ;
+                &:focus{
+                    outline: none;
+                    outline-color: transparent;
+                    outline-color: #ccc;
+                }
+                &.yes-in-place{
+                    background-color: #f89e13;
+                    border: #f89e13;
+                    color: white;
+                }
+                &.not-in-place{
+                    background-color: #18ba89;
+                    border: #18ba89;
+                    color: white;
+                }
+                &.no{
+                    background-color: #27303f;
+                    border: #27303f;
+                    color: white;
+                }
+        }
+        }
+        .controls{
+            display: flex;
+            justify-content: space-between;
+
+            width: 300px;
+            margin: 20px auto;
+            .check{
+                width: 200px;
+                height: 40px;
+                color: white;
+                background-color:#f14234;
+                font-weight: bold;
+                font-size: 15px;
+                letter-spacing: 2px;
+                border-radius: 10px 10px;
+                cursor: pointer;
+                
+            }
+            .Hint{
+                width: 80px;
+                height: 40px;
+                color: white;
+                background-color:#16ba8a;
+                font-weight: bold;
+                font-size: 15px;
+                letter-spacing: 2px;
+                border-radius: 10px 10px;
+                cursor: pointer;
+               
+                span{
+                    color: #333;
+                }
+            }
+            button:disabled{
+                background-color: black;
+                opacity: 0.4;
+                cursor: no-drop;
+            }
+        }
+        } 
+    }
+    .key-colors{
+        h2{
+            text-align: center;
+            background-image: linear-gradient(to right , #f89e13 0% , #18ba89 50% , #27303f 100%);
+            color: black;
+            padding: 5px;
+
+        }
+        .key-color{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: white;
+            padding: 15px;
+            .key{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin-right: 10px;
+                &.in-place{
+                    background-color: #f89e13;
+                }
+                &.not-in-place{
+                    background-color: #18ba89;
+                }
+                &.no{
+                    background-color: #27303f;
+                }
+            }
+            .key-text{
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+.message{
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 40px; 
+        margin-bottom: 40px; 
+        max-width: 90%;
+        padding: 10px;
+        color: #333;
+    span{
+        font-weight: bold;
+        display: block;
+        font-size: 40px;
+        color: var(--primary-color);
+        text-transform: capitalize;
+        margin-top: 10px;
+    }
+    p{
+        margin-top: 15px
+    }
+}
+footer{
+    text-align: center;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 18px;
+    color: black;
+    left: 0;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    color: white;
+}
+footer span{
+    position: relative;
+    margin-right: 2px ;
+}
+footer span::before {
+    content: "_";
+    position: absolute;
+    bottom: -5px;
+    left: 0; 
+    color: white;
+    width: 100%;
+    margin-right: 2px;
+    text-align: center;
+    
+
+}
+footer span.no-under-score::before{
+    display: none;
+}
+
+body.modal-active {
+    overflow: hidden; /* Prevent scrolling */
+    opacity: 0.5; /* Lower opacity when modal is active */
+}
+
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998; /* Make sure it's above other elements */
+}
+
+/* Message box styling */
+.pop-up-message {
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+}
+
+/* Close button styling */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff5f5f;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 25px;
+}
+.close-btn:hover {
+    background-color: #ff3b3b;
+}
