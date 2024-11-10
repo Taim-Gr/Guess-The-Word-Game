@@ -116,7 +116,7 @@ function handleGuesses() {
     } else if (wordToGuess.includes(letter) && letter !== "") {
       inputField.classList.add("not-in-place");
       successGuess = false;
-    } else if (wordToGuess.includes(letter)) {
+    } else  {
       inputField.classList.add("no");
       successGuess = false;
     }
