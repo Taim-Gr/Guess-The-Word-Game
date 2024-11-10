@@ -48,7 +48,6 @@ let words = [
 
 wordToGuess = words[Math.floor(Math.random() * words.length)].toLowerCase();
 let messageArea = document.querySelector(".message");
-console.log(wordToGuess);
 function generateInputs() {
   const inputsContainer = document.querySelector(".inputs");
   // Create Main Try Div :
