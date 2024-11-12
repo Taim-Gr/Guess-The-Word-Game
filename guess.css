@@ -10,6 +10,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #EEE;
 }
+
 h1{
     text-align: center;
     margin: 0 0 50px;
@@ -166,6 +167,7 @@ h1{
                 height: 30px;
                 border-radius: 50%;
                 margin-right: 10px;
+                
                 &.in-place{
                     background-color:rgb(248, 158, 19) ;
                 }
@@ -195,7 +197,7 @@ h1{
     span{
         margin-top: 20px;
         font-size: 50px;
-        color: #333;
+        color: #e46713;
     }
 }
 
@@ -235,4 +237,121 @@ footer span.no-under-score::before{
 ::selection{
     background-color:#333;
     color: white;   
+}
+.menu-shape{
+    list-style: none;
+    /* height: 40px; */
+    display: flex;
+    height: 60px;
+    /* background-color: #EEE; */
+    flex-direction: column;
+    margin: 10px 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: fit-content;
+    cursor: pointer;
+}
+.menu-shape li{
+    width: 30px;
+    height: 4px;
+    margin-bottom: 3px;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+}
+.menu {
+    display: none;
+    opacity: 0.9;
+    ul{
+        /* padding: 10px; */
+        list-style: none;
+        margin: 10px 0;
+        position: absolute;
+        height: 150px;
+        top: 50px;
+        right:10px;
+        width: fit-content;
+        cursor: pointer;
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: bold;
+        padding: 15px;
+        border-radius: 20px;
+
+        transition: 1s ease;
+        &::before{
+            content: "";
+            display: inline-block;
+            width: 0;
+            border: 15px solid;
+            border-color: transparent transparent var(--primary-color) transparent;
+            position: absolute;
+            top: -28px;
+            right:0;
+            transform: translateX(-50%);
+            /* margin-right: 5px; */
+        }
+        li{
+            margin-bottom: 10px;
+            .buttons{
+                display: none;
+                flex-direction: column;
+                button{
+                    margin-top: 10px;
+                    border: none;
+                    border-radius: 20px;
+                    background-color: black;
+                    color: white;
+                    font-weight: bold;
+                    letter-spacing: 5px;
+                    padding: 2px;
+                    cursor: pointer;
+                    
+                }
+            }
+        }
+        span{
+            content: "";
+            display: inline-block;
+            width: 0;
+            border: 5px solid;
+            border-color: transparent transparent transparent black;
+            margin-right: 5px;
+        }
+    }
+}
+.dark-mode{
+    width:60px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    background-color: #DDD;
+    position: relative;
+    margin-left: 15px;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    cursor: pointer;
+    border: 0.1px solid #e46713 ;
+    box-shadow: 1px 1px 15px #e46713 ;
+    transition: box-shadow 1s ease;
+    transition: border 1s ease;
+    transition: background-color 1s ease;
+    span{
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #e46713;
+        top: 50%;
+        left:5px;
+        transform: translatey(-50%);
+        transition: left 1s ease;
+    }
+}
+.disabled-menu{
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: no-drop;
 }
