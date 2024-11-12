@@ -340,9 +340,6 @@ function handleDarkMode() {
     // body change :
     document.body.style.cssText = "background-color : #eee ; color: black";
     document.querySelector("h1").style.color = "black";
-    document
-      .querySelectorAll(".ketText")
-      .forEach((key) => (key.style.color = "white"));
     darkModeArea.classList.remove("active-dark");
   }
 }
