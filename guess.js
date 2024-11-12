@@ -231,7 +231,6 @@ checkBtn.addEventListener("click", handleGuess);
 window.onload = function () {
   generateInputs();
 };
-console.log(wordToGuess);
 /*
   Things i Forget : 
  If(i !== 1){
@@ -334,7 +333,6 @@ function handleDarkMode() {
     //   "color :white !important;";
     darkModeArea.classList.add("active-dark");
   } else {
-    console.log(1);
     darkModeSpan.style.left = "5px";
     darkModeSpan.style.backgroundColor = "#e46713";
     darkModeArea.style.cssText =
