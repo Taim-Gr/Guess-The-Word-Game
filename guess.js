@@ -54,7 +54,7 @@ let words = [
 ];
 let wordToGuess = words[Math.floor(Math.random() * words.length)];
 let currentTry = 1;
-let numberOfTries = 6;
+let numberOfTries = 5;
 let numberOfLetters = 6;
 let numOfHints = 2;
 function generateInputs() {
@@ -129,6 +129,7 @@ function handleGuess() {
     }
   }
   let Message = document.querySelector(".message");
+  // let messageSpan = document.querySelector(".message span");
   if (successGuess) {
     Message.innerHTML = `Congrats You Win The Word Is : <span>${wordToGuess.toUpperCase()}</span>`;
     let allTries = document.querySelectorAll(".inputs > div");
@@ -142,6 +143,8 @@ function handleGuess() {
     // console.log(checkBtn);
     checkBtn.disabled = true;
     hintBtn.disabled = true;
+    document.querySelector(".menu-shape").classList.add("disabled-menu");
+    document.querySelector(".menu-shape").disabled = true;
   } else {
     let currentTryDiv = document.querySelector(`.Try-${currentTry}`);
     currentTryDiv.classList.add("disabled-Inputs");
@@ -161,6 +164,7 @@ function handleGuess() {
       // Disable Buttons :
       checkBtn.disabled = true;
       hintBtn.disabled = true;
+      document.querySelector(".menu-shape").classList.add("disabled-menu");
     }
   }
 }
@@ -227,4 +231,120 @@ checkBtn.addEventListener("click", handleGuess);
 window.onload = function () {
   generateInputs();
 };
+console.log(wordToGuess);
+/*
+  Things i Forget : 
+ If(i !== 1){
+  add disable class
+}
+  and css : pointer-events: none;
+*/
+// handle Toggle Menu :
+let menuBtn = document.querySelector(".menu-shape");
+let menunum = 0;
+let gameDifcBtnNum = 0;
+let gameDifcBtn = document.querySelector(".menu ul .gameD");
 
+console.log(gameDifcBtn);
+function handleMenu() {
+  menunum++;
+  let menu = document.querySelector(".menu");
+  if (menunum % 2 !== 0) {
+    menu.style.display = "block";
+  } else {
+    menu.style.display = "none";
+  }
+}
+// End Toggle Menu .
+// Handle Difficulty Btn .
+function handleDifcBtn() {
+  gameDifcBtnNum++;
+  DifBtnArrow = gameDifcBtn.children[0];
+  let btns = document.querySelector(".buttons");
+  DifBtnArrow.style.borderColor = "black transparent transparent  transparent";
+  if (gameDifcBtnNum % 2 !== 0) {
+    DifBtnArrow.style.borderColor =
+      "black transparent transparent  transparent";
+
+    btns.style.display = "flex";
+  } else {
+    DifBtnArrow.style.borderColor =
+      " transparent  transparent  transparent black";
+    btns.style.display = "none";
+  }
+}
+// Handle Difficulty Btn End .
+// Handling Difficulty Levels :
+
+gameDifcBtn.addEventListener("click", handleDifcBtn);
+menuBtn.addEventListener("click", handleMenu);
+// Handling difficulty Levels :
+let easyBtn = document.querySelector(".easy");
+let normalBtn = document.querySelector(".normal");
+let hardBtn = document.querySelector(".hard");
+
+// Hard State :
+hardBtn.addEventListener("click", handleHard);
+function handleHard() {
+  numberOfTries = 3;
+  inputs.innerHTML = "";
+  generateInputs();
+  numOfHints = 1;
+  document.querySelector(".hints span").innerHTML = numOfHints;
+}
+// Normal State :
+normalBtn.addEventListener("click", handleNormal);
+function handleNormal() {
+  numberOfTries = 5;
+  inputs.innerHTML = "";
+  generateInputs();
+  numOfHints = 2;
+  document.querySelector(".hints span").innerHTML = numOfHints;
+}
+// Easy State :
+easyBtn.addEventListener("click", handleEasy);
+function handleEasy() {
+  numberOfTries = 7;
+  inputs.innerHTML = "";
+  generateInputs();
+  numOfHints = 3;
+  document.querySelector(".hints span").innerHTML = numOfHints;
+}
+
+// Handle Dark Mode :
+darkModeArea = document.querySelector(".dark-mode");
+darkModeSpan = document.querySelector(".dark-mode span");
+
+darkModeArea.addEventListener("click", handleDarkMode);
+function handleDarkMode() {
+  // darkModeSpan.style.left = "0";
+  if (!document.querySelector(".active-dark")) {
+    darkModeSpan.style.left = "35px";
+    darkModeSpan.style.backgroundColor = "white";
+    darkModeArea.style.cssText =
+      "    box-shadow: 1px 1px 15px #333 ; ; border-color : #333 ; background-color : #333";
+
+    // body change :
+    document.body.style.cssText = "background-color : black ; color: white";
+    document.querySelector("h1").style.color = "var(--primary-color)";
+    document
+      .querySelectorAll(".ketText")
+      .forEach((key) => (key.style.color = "black"));
+    // document.querySelector(".message span").style.cssText =
+    //   "color :white !important;";
+    darkModeArea.classList.add("active-dark");
+  } else {
+    console.log(1);
+    darkModeSpan.style.left = "5px";
+    darkModeSpan.style.backgroundColor = "#e46713";
+    darkModeArea.style.cssText =
+      "box-shadow: 1px 1px 15px #e46713 ; ; border-color : #e46713 ; background-color : #ddd";
+    // body change :
+    document.body.style.cssText = "background-color : #eee ; color: black";
+    document.querySelector("h1").style.color = "black";
+    document
+      .querySelectorAll(".ketText")
+      .forEach((key) => (key.style.color = "white"));
+    darkModeArea.classList.remove("active-dark");
+  }
+}
