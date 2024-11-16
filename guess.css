@@ -431,6 +431,8 @@ footer span.no-under-score::before{
                 height: 35px;
                 font-size: 20px;
 }
+    .dark-mode{
+        left : 10px;
     footer{
         font-size: 18px;
         line-height: 1.4;
