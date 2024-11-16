@@ -412,6 +412,9 @@ footer span.no-under-score::before{
     }
 }
 @media (max-width:768px){
+    .controls{
+        justify-content: space-between;
+    }
     .header{
         background-color : white;
     }
@@ -438,7 +441,7 @@ footer span.no-under-score::before{
         left : 10px;
     footer{
         font-size: 18px;
-        line-height: 1.4;
+        line-height: 1.7;
     }
 }
 /* Responsive Work */
