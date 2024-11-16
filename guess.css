@@ -412,6 +412,9 @@ footer span.no-under-score::before{
     }
 }
 @media (max-width:768px){
+    .header{
+        background-color : white;
+    }
     .header h1{
         font-size: 28px;
     }
