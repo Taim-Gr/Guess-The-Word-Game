@@ -2,7 +2,7 @@ let gameName = "Guess The Word";
 document.querySelector("h1").innerHTML = gameName;
 document.title = gameName;
 // Start Footer Style :
-let footer = `${gameName} Game Created By Taim Jr`;
+let footer = `Created By Taim Jr`;
 
 footer.split("").forEach(function (letter) {
   if (letter === " ") {
