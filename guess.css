@@ -11,12 +11,45 @@ body{
     background-color: #EEE;
     transition:  background-color 1s ease;
 }
-
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@media (min-width:768px){
+    .container{
+        width: 750px;
+    }
+}
+@media (min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+@media (min-width:1200px){
+    .container{
+        width: 1170px;
+    }
+}
+.header{
+    .container{
+    margin: auto;
+    /* width: 1000px; */
+    position: relative;
+}
+}
 h1{
+    /* position: relative; */
     text-align: center;
-    margin: 0 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 50px 0;
     background-color: white;
-    padding: 20px;
+    /* padding: 20px; */
+    height: 70px;
+    font-size: 28px;
     .slide{
         /* padding: 15px; */
         font-size: 20px;
@@ -33,10 +66,17 @@ h1{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    width: 1000px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 15px;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap-reverse;
+        
+    }
     .game-area{
+       
         .inputs{
             margin-bottom: 30px;
            > div{
@@ -83,6 +123,7 @@ h1{
         .controls{
             display: flex;
             justify-content: space-evenly;
+
             button{
                 cursor: pointer;
             }
@@ -150,7 +191,9 @@ h1{
             }
         }
     }
+
     .key-colors{
+
         h2{
             background-color: white;
             background-image: linear-gradient(to right, rgb(248, 158, 19) 0%, rgb(24, 186, 137) 50%, rgb(39, 48, 63) 100%);
@@ -240,20 +283,18 @@ footer span.no-under-score::before{
     color: white;   
 }
 .menu-shape{
+    display: block;
     list-style: none;
-    /* height: 40px; */
-    display: flex;
-    height: 60px;
-    /* background-color: #EEE; */
-    flex-direction: column;
-    margin: 10px 0;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
     width: fit-content;
     cursor: pointer;
+    margin: 0;
 }
-.menu-shape li{
+.menu-shape span{
+    display: block;
     width: 30px;
     height: 4px;
     margin-bottom: 3px;
@@ -292,6 +333,7 @@ footer span.no-under-score::before{
             transform: translateX(-50%);
             /* margin-right: 5px; */
         }
+
         li{
             margin-bottom: 10px;
             .buttons{
@@ -311,7 +353,7 @@ footer span.no-under-score::before{
                 }
             }
         }
-        span{
+        span.arrow-left{
             content: "";
             display: inline-block;
             width: 0;
@@ -322,16 +364,17 @@ footer span.no-under-score::before{
     }
 }
 .dark-mode{
+    display: block;
     width:60px;
     height: 30px;
     border-radius: 30px;
     border: none;
     background-color: #DDD;
     position: relative;
-    margin-left: 15px;
     position: absolute;
-    top: 20px;
-    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
     cursor: pointer;
     border: 0.1px solid #e46713 ;
     box-shadow: 1px 1px 15px #e46713 ;
@@ -356,3 +399,41 @@ footer span.no-under-score::before{
     pointer-events: none;
     cursor: no-drop;
 }
+
+/* Responsive Work */
+@media (max-width:992px) {
+    .key-colors{
+        margin: auto;
+        padding-bottom: 60px;
+    }
+    .game-area{
+        margin: auto;
+        padding-bottom: 50px;
+    }
+}
+@media (max-width:768px){
+    .header h1{
+        font-size: 28px;
+    }
+    .guess-game .game-area{
+        padding-bottom: 50px;
+    }
+    .guess-game .game-area .inputs > div{
+        flex-wrap: wrap;
+    }
+    .guess-game .game-area .inputs > div span{
+        width: 100%;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .guess-game .game-area .inputs > div input{
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+}
+    footer{
+        font-size: 18px;
+        line-height: 1.4;
+    }
+}
+/* Responsive Work */
