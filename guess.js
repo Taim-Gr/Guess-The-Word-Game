@@ -1,4 +1,4 @@
-let gameName = "Guess The Word ";
+let gameName = "Guess The Word";
 document.querySelector("h1").innerHTML = gameName;
 document.title = gameName;
 // Start Footer Style :
