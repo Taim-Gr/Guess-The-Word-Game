@@ -1,4 +1,4 @@
-let gameName = "Guess The Word Game";
+let gameName = "Guess The Word ";
 document.querySelector("h1").innerHTML = gameName;
 document.title = gameName;
 // Start Footer Style :
@@ -78,7 +78,7 @@ function generateInputs() {
     }
   }
 
-  inputs.children[0].children[1].focus();
+  // inputs.children[0].children[1].focus();
   let disabledInputs = document.querySelectorAll(".disabled-Inputs input");
   // console.log(Array.from(disabledInputs));
   disabledInputs.forEach((input) => (input.disabled = true));
@@ -231,6 +231,7 @@ checkBtn.addEventListener("click", handleGuess);
 window.onload = function () {
   generateInputs();
 };
+// console.log(wordToGuess);
 /*
   Things i Forget : 
  If(i !== 1){
@@ -240,15 +241,14 @@ window.onload = function () {
 */
 // handle Toggle Menu :
 let menuBtn = document.querySelector(".menu-shape");
-let menunum = 0;
-let gameDifcBtnNum = 0;
 let gameDifcBtn = document.querySelector(".menu ul .gameD");
 
 console.log(gameDifcBtn);
-function handleMenu() {
-  menunum++;
+
+function handleMenu(event) {
+  event.target.classList.toggle("clicked");
   let menu = document.querySelector(".menu");
-  if (menunum % 2 !== 0) {
+  if (event.target.classList.contains("clicked")) {
     menu.style.display = "block";
   } else {
     menu.style.display = "none";
@@ -256,12 +256,12 @@ function handleMenu() {
 }
 // End Toggle Menu .
 // Handle Difficulty Btn .
-function handleDifcBtn() {
-  gameDifcBtnNum++;
+function handleDifcBtn(event) {
+  event.target.classList.toggle("clicked");
   DifBtnArrow = gameDifcBtn.children[0];
   let btns = document.querySelector(".buttons");
   DifBtnArrow.style.borderColor = "black transparent transparent  transparent";
-  if (gameDifcBtnNum % 2 !== 0) {
+  if (event.target.classList.contains("clicked")) {
     DifBtnArrow.style.borderColor =
       "black transparent transparent  transparent";
 
@@ -333,6 +333,7 @@ function handleDarkMode() {
     //   "color :white !important;";
     darkModeArea.classList.add("active-dark");
   } else {
+    console.log(1);
     darkModeSpan.style.left = "5px";
     darkModeSpan.style.backgroundColor = "#e46713";
     darkModeArea.style.cssText =
@@ -340,6 +341,9 @@ function handleDarkMode() {
     // body change :
     document.body.style.cssText = "background-color : #eee ; color: black";
     document.querySelector("h1").style.color = "black";
+    document;
+    // .querySelectorAll(".ketText")
+    // .forEach((key) => (key.style.color = "black"));
     darkModeArea.classList.remove("active-dark");
   }
 }
