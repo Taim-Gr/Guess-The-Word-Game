@@ -443,7 +443,8 @@ footer span.no-under-score::before{
     footer{
         font-size: 16px;
         line-height: 1.7;
-        letter-spacing:2
+        letter-spacing: 2px;
+    
     }
 }
 /* Responsive Work */
